@@ -647,18 +647,14 @@ The <dfn method for=Blob>bytes()</dfn> method, when invoked, must run these step
 
 ### The {{Blob/textStream()}} method ### {#text-stream-method-algo}
 
-The <dfn method for=Blob>textStream()</dfn> method, when invoked, must run these steps:
+The <dfn method for=Blob>textStream()</dfn> method steps are:
 
 1. Let |stream| be the result of calling [=get stream=] on [=this=].
 1. Let |decoder| be a new {{TextDecoderStream}} in [=this=]'s [=relevant realm=].
 1. [=set up a text decoder stream|Set up=] |decoder| with [=UTF-8=].
 1. Return the result of calling |stream|, [=pipe through|piped through=] |decoder|.
 
-Note: This is different from the behavior of {{FileReader/readAsText()}} to align better
-with the behavior of {{Body/textStream()|Fetch's textStream()}}. Specifically this method will always
-use UTF-8 as encoding, while {{FileReader}} can use a different encoding depending on
-the blob's type and passed in encoding name.
-
+Note: This differs from {{FileReader/readAsText()}} in that it always uses the [=UTF-8=] encoding.
 <!--
 ████████ ████ ██       ████████
 ██        ██  ██       ██
